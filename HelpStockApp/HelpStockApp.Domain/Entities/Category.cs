@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelpStockApp.Domain.Validation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,22 @@ namespace HelpStockApp.Domain.Entities
 
         public Category(string name)
         {
-            Name = name;
+            ValidateDomain(name);
         }
 
         public Category(int id, string name)
         {
             Id = id;
+            ValidateDomain(name);
+        }
+
+        public ICollection<Product> Products { get; set; }
+
+        private void ValidateDomain(string name)
+        {
+            DomainExceptionValidation.When(string.IsNullOrEmpty(name),"Invalid name, name is required");
+            DomainExceptionValidation.When(name.Length < 3, "Invalid name, too short. minimum 3 characters");
+
             Name = name;
         }
     }
