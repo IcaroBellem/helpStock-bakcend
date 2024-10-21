@@ -1,6 +1,4 @@
-﻿
-
-using HelpStockApp.Domain.Entities;
+﻿using HelpStockApp.Domain.Entities;
 
 namespace HelpStockApp.Domain.Interfaces
 {
