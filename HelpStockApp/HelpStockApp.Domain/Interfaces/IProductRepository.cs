@@ -2,7 +2,7 @@
 
 namespace HelpStockApp.Domain.Interfaces
 {
-    public interface IProductRepository
+    public interface IProductRepository 
     {
         Task<IEnumerable<Product>> GetProducts();
         Task<Product> GetById(int? id);
