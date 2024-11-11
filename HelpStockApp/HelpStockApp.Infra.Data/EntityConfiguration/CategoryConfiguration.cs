@@ -10,6 +10,14 @@ namespace HelpStockApp.Infra.Data.EntityConfiguration
         {
             builder.HasKey(t => t.Id);
             builder.Property(t => t.Name).HasMaxLength(100).IsRequired();
+
+            builder.HasData(
+                new Category(1, "Material Escolar"),
+                new Category(2, "Eletronicos"),
+                new Category(3, "Acessorios"),
+                new Category(4, "Moveis"),
+                new Category(5, "Vestuario")
+                );
         }
     }
 }
