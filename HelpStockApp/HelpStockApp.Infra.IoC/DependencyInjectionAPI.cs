@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace HelpStockApp.Infra.IoC
 {
-    public static class DependencyInjectionAPI
+    public static class DependencyInjectionAPI 
     {
     public static IServiceCollection AddInfrastructureAPI(this IServiceCollection services, IConfiguration configuration)
     {
