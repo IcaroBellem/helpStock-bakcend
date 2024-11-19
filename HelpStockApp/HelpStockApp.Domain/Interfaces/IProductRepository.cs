@@ -8,6 +8,6 @@ namespace HelpStockApp.Domain.Interfaces
         Task<Product> GetById(int? id);
         Task<Product> Create(Product product);
         Task<Product> Update(Product product);
-        Task<Product> Delete(Product product);
+        Task<Product> DeleteCategory(Product product);
     }
 }
