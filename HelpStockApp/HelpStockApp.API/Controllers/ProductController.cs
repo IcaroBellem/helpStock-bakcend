@@ -52,7 +52,7 @@ namespace HelpStockApp.API.Controllers
                 return BadRequest(ModelState);
 
             await _productService.Update(productDto);
-            return NoContent();
+            return Ok();
         }
 
         [HttpDelete("{id}")]
@@ -63,7 +63,7 @@ namespace HelpStockApp.API.Controllers
                 return NotFound();
 
             await _productService.Remove(id);
-            return NoContent();
+            return Ok();
         }
     }
 }
