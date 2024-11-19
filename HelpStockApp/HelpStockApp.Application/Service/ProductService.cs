@@ -38,7 +38,7 @@ namespace HelpStockApp.Application.Services
         public async Task Remove(int? id)
         {
             var productEntity = _productRepository.GetById(id).Result;
-            await _productRepository.Delete(productEntity);
+            await _productRepository.DeleteCategory(productEntity);
         }
 
         public async Task Update(ProductDTO productDto)

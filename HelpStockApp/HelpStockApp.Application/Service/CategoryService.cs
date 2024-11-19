@@ -22,7 +22,7 @@ namespace HelpStockApp.Application.Service
             return _mapper.Map<IEnumerable<CategoryDTO>>(categoryEntity);
         }
 
-        public async Task<CategoryDTO> GetCategorieById(int? id)
+        public async Task<CategoryDTO> GetCategoryById(int? id)
         {
             var categoryEntity = await _categoryRepository.GetById(id);
             return _mapper.Map<CategoryDTO>(categoryEntity);
