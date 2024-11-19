@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using HelpStockApp.Application.DTOs;
 using HelpStockApp.Application.Interfaces;
+using HelpStockApp.Application.Services;
 
 namespace HelpStockApp.API.Controllers
 {
@@ -28,7 +29,7 @@ namespace HelpStockApp.API.Controllers
         }
 
         [HttpGet("{id:int}", Name = "GetCategory")]
-        public async Task<ActionResult<CategoryDTO>> Get(int id)
+        public async Task<ActionResult<CategoryDTO>> GetById(int id)
         {
             var category = await _categoryService.GetCategoryById(id);
             if (category == null)
@@ -38,16 +39,13 @@ namespace HelpStockApp.API.Controllers
             return Ok(category);
         }
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CategoryDTO categoryDto)
+        public async Task<ActionResult> Create([FromBody] CategoryDTO categoryDto)
         {
-            if (categoryDto == null)
-            {
-                return BadRequest("Invalid Data");
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             await _categoryService.Add(categoryDto);
-
-            return new CreatedAtRouteResult("GetCategory", new { id = categoryDto.Id }, categoryDto);
+            return CreatedAtAction(nameof(GetById), new { id = categoryDto.Id }, categoryDto);
         }
         [HttpPut]
         public async Task<ActionResult> Put(int id, [FromBody] CategoryDTO categoryDto)

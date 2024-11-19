@@ -9,11 +9,15 @@ namespace HelpStockApp.Domain.Entities
         public double Price { get; set; }
         public int Stock { get; set; }
         public string Image { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
 
+        public Product() { }
 
-        public Product(string name, string description, double price, int stock, string image)
+        public Product(string name, string description, double price, int stock, string image, int categoryId)
         {
             ValidateDomain(name, description, price, stock, image);
+            CategoryId = categoryId;
         }
         public Product(int id, string name, string description, double price, int stock, string image)
         {
@@ -39,7 +43,5 @@ namespace HelpStockApp.Domain.Entities
             Stock = stock;
             Image = image;
         }
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
     }
 }
