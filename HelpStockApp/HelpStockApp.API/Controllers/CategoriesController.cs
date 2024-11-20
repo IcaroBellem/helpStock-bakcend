@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using HelpStockApp.Application.DTOs;
+﻿using HelpStockApp.Application.DTOs;
 using HelpStockApp.Application.Interfaces;
-using HelpStockApp.Application.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HelpStockApp.API.Controllers
 {
@@ -71,7 +70,7 @@ namespace HelpStockApp.API.Controllers
             var category = await _categoryService.GetCategoryById(id);
             if (category == null)
             {
-                return NotFound("The category delete not found");
+                return NotFound("The category delete not founded");
             }
 
             await _categoryService.Remove(id);
